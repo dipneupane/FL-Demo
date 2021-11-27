@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>FL.Database</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{d3c0afc1-7906-4c63-bad9-7f6a752b5f78}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>FL.Database</RootNamespace>
+    <AssemblyName>FL.Database</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="auth\" />
+    <Folder Include="auth\Tables\" />
+    <Folder Include="Security\" />
+    <Folder Include="auth\Scripts" />
+    <Folder Include="dbo" />
+    <Folder Include="dbo\Tables" />
+    <Folder Include="master" />
+    <Folder Include="master\Tables" />
+    <Folder Include="master\Scripts" />
+    <Folder Include="dbo\Scripts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="auth\Tables\AspNetUsers.sql" />
+    <Build Include="auth\Tables\AspNetRoleClaims.sql" />
+    <Build Include="auth\Tables\AspNetRoles.sql" />
+    <Build Include="auth\Tables\AspNetUserClaims.sql" />
+    <Build Include="auth\Tables\AspNetUserLogins.sql" />
+    <Build Include="auth\Tables\AspNetUserRoles.sql" />
+    <Build Include="auth\Tables\AspNetUserTokens.sql" />
+    <Build Include="Security\auth.sql" />
+    <None Include="auth\Scripts\AspNetRoles.sql" />
+    <None Include="auth\Scripts\AspNetUserRoles.sql" />
+    <None Include="auth\Scripts\AspNetUsers.sql" />
+    <Build Include="dbo\Tables\CorporateCustomer.sql" />
+    <Build Include="dbo\Tables\OfficeCustomer.sql" />
+    <Build Include="dbo\Tables\StudentCustomer.sql" />
+    <Build Include="master\Tables\ProductCategory.sql" />
+    <Build Include="Security\master.sql" />
+    <None Include="master\Scripts\ProductCategory.sql" />
+    <None Include="master\Scripts\Color.sql" />
+    <Build Include="master\Tables\Color.sql" />
+    <Build Include="dbo\Tables\ProductItem.sql" />
+    <Build Include="dbo\Tables\ProductItemColor.sql" />
+    <Build Include="dbo\Tables\ProductOrder.sql" />
+    <Build Include="dbo\Tables\ProductStock.sql" />
+    <None Include="dbo\Scripts\ProductItem.sql" />
+    <None Include="dbo\Scripts\ProductItemColor.sql" />
+    <None Include="dbo\Scripts\ProductStock.sql" />
+    <None Include="dbo\Scripts\CorporateCustomer.sql" />
+    <None Include="dbo\Scripts\OfficeCustomer.sql" />
+    <None Include="dbo\Scripts\StudentCustomer.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Script.PostDeployment1.sql" />
+  </ItemGroup>
+</Project>
